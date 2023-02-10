@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>drap</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+<style>
+    .block{
+        width: 100px;
+        height: 100px;
+        background-color: skyblue;
+        position: relative;
+    }
+    .test{
+        width: 400px;
+        height: 500px;
+        background-color: #420612;
+        position: absolute;
+        top:200px;
+        left: 100px;
+    }
+</style>
+<body>
+    <div class="block" draggable="true">物件</div>
+    <div class="test" draggable="true">物件</div>
+</body>
+</html>
+<script>
+    let mouseX= 0;
+    let mouseY= 0;
+    $('.block').on('mousemove',(e)=>{
+        // console.log(e.offsetX,e.offsetY);
+    })
+    $('.block').on('dragstart',(e)=>{
+        // let blockX = e.clientX - mouseX;
+        // let blockY = e.clientY - mouseY;
+        // mouseX = e.clientX-$('.block').offset().left
+        // mouseY = e.clientY-$('.block').offset().top
+        // console.log(mouseX,mouseY);
+        console.log("開始拖拉");
+    })
+    $('.block').on('drag',(e)=>{
+        // console.log(e.clientX,e.clientY);
+        console.log("拖拉中");
+    })
+
+    $('.block').on('dragend',(e)=>{
+        $('.block').css("position","absolute");
+        let blockX = e.clientX - mouseX;
+        let blockY = e.clientY - mouseY;
+
+        // $('.block').offset({top:e.clientY,left:e.clientX})
+        $('.block').offset({top:blockY,left:blockX})
+        e.preventDefault()
+        console.log("拖拉結束");
+    })
+
+    $('.body').on('dragover',(e)=>{
+       
+        console.log("在black上");
+    })
+    $('.body').on('dragenter',(e)=>{
+        e.preventDefault()
+        console.log("進入black");
+    })
+
+
+    $('.body').on('dragleave',(e)=>{
+       
+        console.log("離開body");
+    })
+
+    $('.body').on('drop',(e)=>{
+    
+
+        // $('.block').offset({top:e.clientY,left:e.clientX})
+        $('.block').offset({top:blockY,left:blockX})
+        // e.preventDefault()
+        $('body').append($('.block'));
+        console.log("放開物件");
+    })
+</script>
