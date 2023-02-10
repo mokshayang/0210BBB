@@ -93,7 +93,7 @@ $bookings = [2, 6, 18, 19]
 
     <div class="ct">
         <button onclick="$('#orderForm,#booking').toggle(); $('#booking').html(''); ">上一步</button>
-        <button>確定</button>
+        <button onclick="checkout()">確定</button>
     </div>
 </div>
 <script>
@@ -101,6 +101,7 @@ $bookings = [2, 6, 18, 19]
     //只能畫四個
     let seats = [];
         // $('input[type="checkbox"]').eq(0).prop('checked',true)
+    
 
     //要先判斷 在push
     $('.chk').on("change", function() {
@@ -122,7 +123,18 @@ $bookings = [2, 6, 18, 19]
             seats.splice(seats.indexOf($(this).val()),1);//某個元素 在陣列中的哪個key
             console.log(seats);
         }
+        $('#tickets').text(seats.length)
     })
 
+    function checkout(){
+        $.post("./api/order.php",{seats,
+                                  movie:$('#movies option:selected').text(),
+                                  date:$('#day option:selected').text(),
+                                  session:$('#session option:selected').text(),
+                                },
+                                (res)=>{
+                                    console.log(res);
+        })
+    }
 
 </script>

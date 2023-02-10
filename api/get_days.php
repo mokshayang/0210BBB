@@ -14,8 +14,9 @@ $duration = 3 - (( $today - strtotime($ondate))/(60*60*24));
 //echo $duration; //剩下天數
 for($i=0; $i < $duration; $i++){
     $date = date("Y-m-d",strtotime("+$i days"));
+    $str = date("m月d日 l",strtotime("+$i days"));
     echo "<option value='$date'>";
-    echo $date;
+    echo $str;
     echo "</option>";
 }
 
