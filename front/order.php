@@ -52,9 +52,9 @@
 <script>
     getMovies();
 
-    function reset() {
-        $('#movies').val("");
-    }
+    // function reset() {
+    //     $('#movies').val("");
+    // }
     //電影有變動 改變日期
     $('#movies').on('change', function() {
         getDays($('#movies').val());
@@ -68,8 +68,8 @@
         $.get("./api/get_booking.php", {}, (res) => {
             $('#booking').html(res);
             $('#selectMovie').text($('#movies option:selected').text());
-            $('#selectDate').text($('#day option:selected').text());
-            $('#selectSession').text($('#session option:selected').text());
+            $('#selectDate').text($('#day option:selected').val());
+            $('#selectSession').text($('#session option:selected').val());
         })
 
     }

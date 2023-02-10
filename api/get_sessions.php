@@ -24,6 +24,6 @@ for($i=$start;$i<=5;$i++){
 //$Movie->session[$i] => 是option.text()
     echo "<option value='{$Movie->session[$i]}'>";     
     echo $Movie->session[$i];
-    echo "剩餘座位 20";//20-已被訂走的座位數
+    // echo "剩餘座位 20";//20-已被訂走的座位數
     echo "</option>";
 }

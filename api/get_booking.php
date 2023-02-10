@@ -84,9 +84,9 @@ $bookings = [2, 6, 18, 19]
     </div>
 </div>
 <div class="infro">
-    <p>你選擇的電影是 : <span id='selectMovie'></span> </p>
-    <p>你選擇的時刻是 : <span id='selectDate'> </span> &nbsp; <span id='selectSession'></span> </p>
-    <p>你已經勾選<span id='tickets'></span> 張，最多可以購買4張票 : </p>
+    <div>你選擇的電影是 : <span id='selectMovie'></span> </div>
+    <div>你選擇的時刻是 : <span id='selectDate'> </span> &nbsp; <span id='selectSession'></span> </div>
+    <div>你已經勾選<span id='tickets'></span> 張，最多可以購買4張票 : </div>
 
 
 
