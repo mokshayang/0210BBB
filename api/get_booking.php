@@ -125,6 +125,7 @@ $bookings = [2, 6, 18, 19]
         }
         $('#tickets').text(seats.length)
     })
+    
 
     function checkout(){
         $.post("./api/order.php",{seats,
