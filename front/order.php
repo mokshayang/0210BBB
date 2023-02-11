@@ -94,7 +94,8 @@
         $.get("api/get_movies.php", (movies) => {
             $('#movies').html(movies);
             if (params.id) { //如果網址有 id(別葉傳過來的) 電影為當ID的電影
-                $(`#movies option[value=${params.id}]`).attr("selected", true);
+                //只有#movie option 底下是抓取 url.id的 所以$(#movies 不需要)
+                $(`option[value=${params.id}]`).attr("selected", true);
                 // getDays($("#movie").val());
             }
             getDays($("#movies").val());
