@@ -64,7 +64,7 @@
     })
 
     //確定的時候 
-    function getBooking() { //選好電影時確定
+    function getBooking() { //選好電影時確定 orderFrom.click==>booking
         $.get("./api/get_booking.php", {}, (res) => {
             $('#booking').html(res);
             $('#selectMovie').text($('#movies option:selected').text());
@@ -93,8 +93,8 @@
         console.log('params', params);
         $.get("api/get_movies.php", (movies) => {
             $('#movies').html(movies);
-            if (params.id) { //如果網址有 id
-                $(`#movies option[value="${params.id}"]`).attr("selected", true);
+            if (params.id) { //如果網址有 id(別葉傳過來的) 電影為當ID的電影
+                $(`#movies option[value=${params.id}]`).attr("selected", true);
                 // getDays($("#movie").val());
             }
             getDays($("#movies").val());

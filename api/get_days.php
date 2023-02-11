@@ -9,7 +9,8 @@ $ondete = $movie['ondate'];
 $today = strtotime(date("Y-m-d"));
 
 
-$duration = 3 - (( $today - strtotime($ondate))/(60*60*24));
+// $duration = 3 - (( $today - strtotime($ondate))/(60*60*24));
+$duration = 3 - (( strtotime(date("Y-m-d")) - strtotime($ondate))/(60*60*24));
 
 //echo $duration; //剩下天數
 for($i=0; $i < $duration; $i++){
