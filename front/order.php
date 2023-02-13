@@ -80,6 +80,7 @@
 
         let params = {}; //先宣告一個物件
         //解析往解析往
+        
         location.href.split("?")[1].split("&").forEach(item => {
             params[item.split("=")[0]] = item.split("=")[1]
         })

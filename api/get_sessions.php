@@ -1,5 +1,5 @@
 <?php include_once "base.php";
-$movid=$Movie->find($_GET['id']);
+$movie=$Movie->find($_GET['id']);
 $date = $_GET['date'];
 
 //大寫 不補0 拿來計算用 :
@@ -22,8 +22,10 @@ for($i=$start;$i<=5;$i++){
 */
 //value='{$Movie->session[$i]}' => 是option.val()
 //$Movie->session[$i] => 是option.text()
+//當有資料愈與座位的時候:
+$sum = $Ord->sum('qt',['movie'=>$movie['name'],'date'=>$date,'session'=>$Movie->session[$i]]);
     echo "<option value='{$Movie->session[$i]}'>";     
     echo $Movie->session[$i];
-    // echo "剩餘座位 20";//20-已被訂走的座位數
+    echo "剩餘座位" (20-$sum);//20-已被訂走的座位數
     echo "</option>";
 }
