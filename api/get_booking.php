@@ -1,5 +1,11 @@
 <?php include_once "base.php";
-$bookings = [2, 6, 18, 19]
+$ords = $Ord->all(['movie'=>$_GET['movie'],'date'=>$_GET['date'],'session'=>$_GET['session']]);
+//找出同場次
+$bookings = [];
+foreach($ords as $ord){
+    $seats = unserialize($ord['seats']);
+    $bookings = array_merge($bookings,$seats);
+}
 ?>
 <style>
     #block {
@@ -126,11 +132,11 @@ $bookings = [2, 6, 18, 19]
         $.post("./api/order.php", {
                 seats,
                 movie: $('#movies option:selected').text(),
-                date: $('#day option:selected').text(),
-                session: $('#session option:selected').text(),
+                date: $('#day').val(),
+                session: $('#session').val(),
             },
             (res) => {
-                console.log(res);
+                $('#booking').html(res);
             })
     }
 </script>

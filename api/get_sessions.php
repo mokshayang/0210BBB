@@ -26,6 +26,6 @@ for($i=$start;$i<=5;$i++){
 $sum = $Ord->sum('qt',['movie'=>$movie['name'],'date'=>$date,'session'=>$Movie->session[$i]]);
     echo "<option value='{$Movie->session[$i]}'>";     
     echo $Movie->session[$i];
-    echo "剩餘座位" (20-$sum);//20-已被訂走的座位數
+    echo "剩餘座位". (20-$sum);//20-已被訂走的座位數
     echo "</option>";
 }

@@ -65,11 +65,16 @@
 
     //確定的時候 
     function getBooking() { //選好電影時確定 orderFrom.click==>booking
-        $.get("./api/get_booking.php", {}, (res) => {
+        let info = {
+            'movie':$('#movies option:selected').text(),
+            'date':$('#day').val(),
+            'session':$('#session').val(), 
+        }
+        $.get("./api/get_booking.php", info, (res) => {
             $('#booking').html(res);
-            $('#selectMovie').text($('#movies option:selected').text());
-            $('#selectDate').text($('#day option:selected').val());
-            $('#selectSession').text($('#session option:selected').val());
+            $('#selectMovie').text(info.movie);
+            $('#selectDate').text(info.date);
+            $('#selectSession').text(info.session);
         })
 
     }

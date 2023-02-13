@@ -173,7 +173,8 @@ function dummy_icon($type){
 }
 $Trailer = new DB("trailer");//介紹片海報
 $Tp = new DB("tp");//介紹片海報
-$Movie = new Db("movie");
+$Movie = new DB("movie");
+$Ord = new DB("ord");
 // $admin = new DB("admin_hw");
 // $subject = new DB("survey_subject_hw");
 // $options= new DB("survey_options_hw");
